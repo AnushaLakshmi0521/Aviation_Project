@@ -69,7 +69,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://aviation-one-tau.vercel.app/",
+    "https://aviation-one-tau.vercel.app",
 ]
 
 
