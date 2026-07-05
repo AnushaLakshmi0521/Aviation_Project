@@ -77,7 +77,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://aviation-project-18hzq8ums-collabaeroforce.vercel.app",
+    "https://aviation-project-topaz.vercel.app",
+    "https://aviation-project-collabaeroforce.vercel.app",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
