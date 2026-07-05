@@ -155,53 +155,53 @@ const initiateLiveChatPerson = () => {
   );
 };
 
+
+const initiateCallbackSetup = () => {
+  setChatMode("callback-setup");
+
+  setAiChat((prev) => [
+    ...prev,
+    {
+      sender: "agent",
+      text:
+        "📞 Callback mode activated.\n\nPlease enter your phone number below and our team will contact you shortly.",
+    },
+  ]);
+
+};
   // Route to Callback Option
- const handleCallbackSubmit = async (e) => {
-  e.preventDefault();
+  const contactUser = () => {
+  const phone = "+919848780827";
 
-  if (!phoneNumber) return;
-
-  try {
-    const res = await fetch("https://aviation-project-7d1q.onrender.com/api/contact/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: formData.name || "Callback Request",
-        email: formData.email || "callback@user.com",
-        track: formData.track || "callback",
-        message: `CALL REQUEST: ${phoneNumber}`,
-      }),
-    });
-
-    const data = await res.json();
-    console.log("Callback sent:", data);
-
-    setAiChat((prev) => [
-      ...prev,
-      {
-        sender: "agent",
-        text: "✅ Your callback request has been received. Our team will contact you shortly.",
-      },
-    ]);
-
-    setChatMode("callback-scheduled");
-    setPhoneNumber("");
-
-  } catch (error) {
-    console.error(error);
-
-    setAiChat((prev) => [
-      ...prev,
-      {
-        sender: "agent",
-        text: "❌ Failed to send callback request. Please try again.",
-      },
-    ]);
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    window.location.href = `tel:${phone}`;
+  } else {
+    window.open(`https://wa.me/919848780827`, "_blank");
   }
 };
 
+const handleCallbackSubmit = (e) => {
+  e.preventDefault();
+
+  if (!phoneNumber.trim()) return;
+
+  setChatMode("callback-scheduled");
+
+  setAiChat((prev) => [
+    ...prev,
+    {
+      sender: "user",
+      text: `📱 Callback requested: ${phoneNumber}`,
+    },
+    {
+      sender: "agent",
+      text:
+        "✅ Your callback request has been received.\nOur team will contact you soon.",
+    },
+  ]);
+
+  setPhoneNumber("");
+};
   // Handle Callback Submission
 const handleAiSubmit = async (e) => {
   e.preventDefault();
