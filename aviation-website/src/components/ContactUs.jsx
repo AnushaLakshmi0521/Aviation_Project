@@ -167,7 +167,7 @@ const initiateCallbackSetup = () => {
         "📞 Callback mode activated.\n\nPlease enter your phone number below and our team will contact you shortly.",
     },
   ]);
-
+  
 };
   // Route to Callback Option
   const contactUser = () => {
@@ -180,28 +180,6 @@ const initiateCallbackSetup = () => {
   }
 };
 
-const handleCallbackSubmit = (e) => {
-  e.preventDefault();
-
-  if (!phoneNumber.trim()) return;
-
-  setChatMode("callback-scheduled");
-
-  setAiChat((prev) => [
-    ...prev,
-    {
-      sender: "user",
-      text: `📱 Callback requested: ${phoneNumber}`,
-    },
-    {
-      sender: "agent",
-      text:
-        "✅ Your callback request has been received.\nOur team will contact you soon.",
-    },
-  ]);
-
-  setPhoneNumber("");
-};
   // Handle Callback Submission
 const handleAiSubmit = async (e) => {
   e.preventDefault();
