@@ -180,6 +180,48 @@ const initiateCallbackSetup = () => {
   }
 };
 
+const handleCallbackSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!phoneNumber.trim()) return;
+
+  try {
+    const response = await fetch(
+      "https://aviation-project-7d1q.onrender.com/api/request-callback/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          phone: phoneNumber,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      setAiChat((prev) => [
+        ...prev,
+        {
+          sender: "agent",
+          text: "✅ Thank you! Our team will call you shortly.",
+        },
+      ]);
+
+      setChatMode("callback-scheduled");
+
+      setPhoneNumber("");
+
+      contactUser();
+    } else {
+      alert("Unable to submit callback request.");
+    }
+  } catch (err) {
+    console.log(err);
+    alert("Server Error");
+  }
+};
+
   // Handle Callback Submission
 const handleAiSubmit = async (e) => {
   e.preventDefault();
