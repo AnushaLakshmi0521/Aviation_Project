@@ -16,12 +16,15 @@ from dotenv import load_dotenv
 import certifi
 import dj_database_url
 
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # Force loading the .env file from the project root
-load_dotenv(BASE_DIR / ".env")
+
 print("BASE_DIR:", BASE_DIR)
 print("ENV EXISTS:", (BASE_DIR / ".env").exists())
 print("EMAIL_HOST_USER:", os.getenv("EMAIL_HOST_USER"))
@@ -38,7 +41,11 @@ SECRET_KEY = 'django-insecure-tmp3$es)x@6jk+%q!j6@r-iyma(6(b_(4)w!7@hhy^v%fnbls+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "aviation-project-7d1q.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 
 # Application definition
@@ -69,7 +76,21 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "http://localhost:5174",
     "https://aviation-project-18hzq8ums-collabaeroforce.vercel.app",
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^http://localhost:\d+$",
+]
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
 ]
 
 
