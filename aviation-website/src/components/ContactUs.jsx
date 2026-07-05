@@ -96,7 +96,7 @@ const handleFormSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/contact/", {
+    const response = await fetch("https://aviation-project-7d1q.onrender.com/api/contact/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -233,7 +233,7 @@ messages.push({
 });
 
 try {
-  const response = await fetch("http://127.0.0.1:8000/api/chat/", {
+  const response = await fetch("https://aviation-project-7d1q.onrender.com/api/chat/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

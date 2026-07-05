@@ -64,7 +64,7 @@ function Apply() {
 
     // Processing hardware submission simulation
     try {
-  const response = await fetch("http://127.0.0.1:8000/api/apply/", {
+  const response = await fetch("https://aviation-project-7d1q.onrender.com/api/apply/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
