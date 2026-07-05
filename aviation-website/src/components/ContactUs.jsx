@@ -156,14 +156,51 @@ const initiateLiveChatPerson = () => {
 };
 
   // Route to Callback Option
-  const initiateCallbackSetup = () => {
-    setChatMode("callback-setup");
+ const handleCallbackSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!phoneNumber) return;
+
+  try {
+    const res = await fetch("https://aviation-project-7d1q.onrender.com/api/contact/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name || "Callback Request",
+        email: formData.email || "callback@user.com",
+        track: formData.track || "callback",
+        message: `CALL REQUEST: ${phoneNumber}`,
+      }),
+    });
+
+    const data = await res.json();
+    console.log("Callback sent:", data);
+
     setAiChat((prev) => [
       ...prev,
-      { sender: "user", text: "I want to request an phone call." },
-      { sender: "agent", text: "Understood. Please supply your priority secure callback routing number below so an agent can open an audio line." }
+      {
+        sender: "agent",
+        text: "✅ Your callback request has been received. Our team will contact you shortly.",
+      },
     ]);
-  };
+
+    setChatMode("callback-scheduled");
+    setPhoneNumber("");
+
+  } catch (error) {
+    console.error(error);
+
+    setAiChat((prev) => [
+      ...prev,
+      {
+        sender: "agent",
+        text: "❌ Failed to send callback request. Please try again.",
+      },
+    ]);
+  }
+};
 
   // Handle Callback Submission
 const handleAiSubmit = async (e) => {
