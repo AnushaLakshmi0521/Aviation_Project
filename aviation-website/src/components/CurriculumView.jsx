@@ -24,10 +24,17 @@ import c5 from "../assets/c5.jpg";
 // YOUR VIDEO ASSETS (Mapped to your exact filenames)
 const c11 =
   "https://res.cloudinary.com/doihibg9v/video/upload/v1782967439/c11_coghbw.mp4";
-import c22 from "../assets/c22.mp4";
-import c33 from "../assets/c33.mp4";
-import c44 from "../assets/c44.mp4";
-import c55 from "../assets/c55.mp4";
+
+  const c22 =
+  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967439/c22_bqv21m.mp4";
+  const c33 =
+  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967441/c44_ntigql.mp4";
+  const c44 =
+  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967439/c11_coghbw.mp4";
+
+  const c55 =
+  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967442/c55_mwj7qg.mp4";
+
 
 function CurriculumView() {
   const heroBackgrounds = [w4, c1, w3, c2, w1, c3,w2, c4, c5];
