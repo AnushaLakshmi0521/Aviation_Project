@@ -22,7 +22,8 @@ import c4 from "../assets/c4.jpg";
 import c5 from "../assets/c5.jpg";
 
 // YOUR VIDEO ASSETS (Mapped to your exact filenames)
-import c11 from "../assets/c11.mp4";
+const c11 =
+  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967439/c11_coghbw.mp4";
 import c22 from "../assets/c22.mp4";
 import c33 from "../assets/c33.mp4";
 import c44 from "../assets/c44.mp4";
