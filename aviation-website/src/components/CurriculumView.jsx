@@ -33,7 +33,7 @@ const c11 =
   "https://res.cloudinary.com/doihibg9v/video/upload/v1782967441/c44_ntigql.mp4";
 
   const c55 =
-  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967442/c55_mwj7qg.mp4";
+  "https://res.cloudinary.com/doihibg9v/video/upload/v1782967442/c55_mwj7qg.mp4"; 
 
 
 function CurriculumView() {

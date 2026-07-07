@@ -134,10 +134,10 @@ function Navbar() {
         {/* BRAND IDENTITY */}
         <Link to="/" onClick={closeMobileMenu} style={{ textDecoration: "none", color: "#ffffff" }}>
           <h2 style={{ fontSize: "20px", fontWeight: "800", margin: 0, letterSpacing: "0.5px" }}>
-            CollabForce
+            SkyCrest
           </h2>
           <span style={{ fontSize: "11px", color: "#E8A830", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", display: "block" }}>
-            Aviation Training
+            Aviation and Modelling Inc
           </span>
         </Link>
 
@@ -217,7 +217,10 @@ function Navbar() {
             <li><Link to="/batches" onClick={closeMobileMenu}>Batches</Link></li>
             <li><Link to="/fees" onClick={closeMobileMenu}>Fees</Link></li>
             <li><Link to="/placements" onClick={closeMobileMenu}>Placements</Link></li>
+
+             <li><Link to="/models" onClick={closeMobileMenu}>Models</Link></li>
             <li><Link to="/apply" onClick={closeMobileMenu}>Apply Now</Link></li>
+    
             <li><Link to="/admissions" onClick={closeMobileMenu}>Admission</Link></li>
             <li><Link to="/contactus" onClick={closeMobileMenu}>Contact Us</Link></li>
           </ul>

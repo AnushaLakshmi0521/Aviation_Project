@@ -16,6 +16,7 @@ import ContactUs from "./components/ContactUs";
 import WhiteCollar from "./pages/WhiteCollar";
 import BlueCollar from "./pages/BlueCollar";
 import FloatingAIButton from "./components/FloatingAIButton";
+import Models from "./components/Models";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/white-collar" element={<WhiteCollar />} />
         <Route path="/blue-collar" element={<BlueCollar />} />
+        <Route path="/models" element={<Models />} />
       </Routes>
 
       {/* 👇 ADD THIS (GLOBAL FLOATING CHAT) */}
