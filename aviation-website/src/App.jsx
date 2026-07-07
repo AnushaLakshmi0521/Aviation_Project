@@ -43,12 +43,12 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <h2>CollabForce Aviation Training</h2>
+          <h2>SkyCrest Aviation and Modelling Training</h2>
           <p>
             India's most accessible aviation ground training programme built for aspiring aviation professionals.
           </p>
           <div className="footerBottom">
-            © 2026 CollabForce. All Rights Reserved.
+            © 2026 SkyCrest. All Rights Reserved.
           </div>
         </div>
       </footer>

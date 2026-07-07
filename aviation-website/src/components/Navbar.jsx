@@ -48,8 +48,8 @@ function Navbar() {
           .navLinks a, .hoverMenuTrigger {
             color: rgba(255,255,255,0.75);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 800;
             transition: color 0.2s ease;
             cursor: pointer;
             display: inline-block;
@@ -137,7 +137,7 @@ function Navbar() {
             SkyCrest
           </h2>
           <span style={{ fontSize: "11px", color: "#E8A830", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", display: "block" }}>
-            Aviation and Modelling Inc
+            Aviation and Modelling Inc.
           </span>
         </Link>
 
