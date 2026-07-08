@@ -152,7 +152,7 @@ function LandingPage() {
         <div className="container">
           <div className="whyHeader">
             <span className="sectionTag">WHY CHOOSE US</span>
-            <h2 className="sectionTitle">Why Students Choose CollabForce</h2>
+            <h2 className="sectionTitle">Why Students Choose SkyCrest</h2>
             <p className="sectionSubtitle">We provide industry-focused aviation training with practical exposure, experienced trainers, and dedicated placement support.</p>
           </div>
 
