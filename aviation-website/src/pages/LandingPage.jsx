@@ -21,7 +21,14 @@ import catering from "../assets/catering.jpg";
 const h1="https://res.cloudinary.com/doihibg9v/video/upload/v1782967443/h1_fqv3mu.mp4";
 const h2="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h2_tgd5eg.mp4";
 const h3="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h3_b4bix3.mp4";
-const h4="https://res.cloudinary.com/doihibg9v/video/upload/v1782967447/h4_zmyuq5.mp4";
+const f2 ="https://res.cloudinary.com/doihibg9v/video/upload/v1783497578/f2_gqhm7v.mp4";
+const f3="https://res.cloudinary.com/doihibg9v/video/upload/v1783497560/f3_k1d7xn.mp4";
+const h33="https://res.cloudinary.com/doihibg9v/video/upload/v1783493688/h33_n05pj7.mp4";
+const f1="https://res.cloudinary.com/doihibg9v/video/upload/v1783498904/f1_d9tw91.mp4";
+
+
+//const h22="https://res.cloudinary.com/doihibg9v/video/upload/v1783493688/h22_v3rs5m.mp4";
+//const f1="https://res.cloudinary.com/doihibg9v/video/upload/v1783494907/f1_txtura.mp4";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,7 +42,7 @@ function LandingPage() {
   const navigate = useNavigate();
 
   // Array containing your 4 hero videos
-  const heroVideos = [h4, h2, h3, h1];
+  const heroVideos = [f2,f1,f3,h2];
 
   const services = [
    { image: cabin, title: "cabin crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service. " },
