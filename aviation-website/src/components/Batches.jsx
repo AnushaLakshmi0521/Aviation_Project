@@ -8,7 +8,7 @@ function Batches() {
   // Unified data array capturing active, upcoming, and expired cohorts
   const batchesData = [
     {
-      id: 1,
+      id: 1, 
       name: "Q3 Alpha Aviation Cohort",
       timeline: "July 2026 - September 2026",
       status: "Admissions Closing Soon",
@@ -77,51 +77,84 @@ function Batches() {
         }
       `}</style>
 
-      {/* RICH ANIMATED BACKGROUND SECTOR */}
+      {/* RICH ANIMATED BACKGROUND SECTOR FOR CONTENT BODY */}
       <div style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, pointerEvents: "none", zIndex: 1 }}>
-        
         {/* Flight Routes & Tracks (SVG Grid) */}
-        <svg width="100%" height="100%" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.85 }}>
-          {/* Flight Path Route 1 */}
-          <path d="M-50 200 C 200 80, 450 300, 700 150 C 900 50, 1050 220, 1250 100" stroke="#e2e8f0" strokeWidth="2.5" strokeDasharray="8 6" fill="none"/>
-          {/* Flight Path Route 2 */}
+        <svg width="100%" height="100%" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.45 }}>
+          <path d="M-50 200 C 200 80, 450 300, 700 150 C 900 50, 1050 220, 1250 100" stroke="#cbd5e1" strokeWidth="2.5" strokeDasharray="8 6" fill="none"/>
           <path d="M-20 550 C 250 420, 500 680, 750 500 C 950 380, 1100 550, 1280 420" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="6 6" fill="none"/>
         </svg>
 
         {/* Dynamic Cloud Vectors with Keyframe Assignments */}
-        <div style={{ position: "absolute", top: "140px", left: 0, animation: "driftSlow 45s linear infinite" }}>
+        <div style={{ position: "absolute", top: "450px", left: 0, animation: "driftSlow 45s linear infinite" }}>
           <svg width="90" height="40" viewBox="0 0 100 45" fill="#e2e8f0">
             <path d="M20 30 C20 20, 35 15, 50 20 C60 10, 80 15, 85 25 C95 25, 100 33, 93 40 C93 43, 20 43, 20 30 Z" />
           </svg>
         </div>
 
-        <div style={{ position: "absolute", top: "380px", left: 0, animation: "driftFast 30s linear infinite", animationDelay: "-10s" }}>
+        <div style={{ position: "absolute", top: "680px", left: 0, animation: "driftFast 30s linear infinite", animationDelay: "-10s" }}>
           <svg width="110" height="50" viewBox="0 0 100 45" fill="#edf2f7">
             <path d="M15 35 C15 22, 35 15, 50 22 C65 12, 85 18, 90 30 C98 30, 103 38, 96 45 C96 45, 15 45, 15 35 Z" />
           </svg>
         </div>
-
-        <div style={{ position: "absolute", top: "720px", left: 0, animation: "driftSlow 55s linear infinite", animationDelay: "-25s" }}>
-          <svg width="130" height="60" viewBox="0 0 100 45" fill="#e2e8f0">
-            <path d="M20 30 C20 18, 40 12, 55 20 C70 8, 90 14, 95 28 C103 28, 108 36, 101 43 C101 43, 20 43, 20 30 Z" />
-          </svg>
-        </div>
-
       </div>
 
-      {/* HERO BANNER SECTION */}
-      <section style={{ background: "linear-gradient(135deg, #071020 0%, #112548 100%)", color: "#ffffff", padding: "120px 20px 80px", textAlign: "center", position: "relative", zIndex: 2 }}>
-        <span style={{ color: "#E8A830", fontSize: "13px", fontWeight: "700", letterSpacing: "3px", textTransform: "uppercase" }}>
-          Every 3 Months — A New Generation Takes Flight
-        </span>
-        <h1 style={{ fontSize: "40px", fontWeight: "800", marginTop: "15px", marginBottom: "15px" }}>Academic Training Cycles</h1>
-        <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.75)", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
-          Explore our structured quarterly cohorts built to transform applicants through verified placement tracks.
-        </p>
+      {/* PREMIUM VIDEO HERO BANNER SECTION */}
+      <section style={{ 
+        position: "relative", 
+        height: "420px", 
+        display: "flex", 
+        flexDirection: "column", 
+        justifyContent: "center", 
+        alignItems: "center", 
+        color: "#ffffff", 
+        textAlign: "center", 
+        overflow: "hidden",
+        zIndex: 2 
+      }}>
+        {/* Background Video Backing */}
+        <video 
+          src="https://res.cloudinary.com/doihibg9v/video/upload/v1783581667/h111_guia0u.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transform: "translate(-50%, -50%)",
+            zIndex: 1
+          }}
+        />
+        
+        {/* Luxury Vignette and Dark Tint Overlayer */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(180deg, rgba(7, 16, 32, 0.85) 0%, rgba(17, 37, 72, 0.6) 50%, rgba(248, 250, 252, 1) 100%)",
+          zIndex: 2
+        }}></div>
+
+        {/* Hero Content Container */}
+        <div style={{ position: "relative", zIndex: 3, padding: "0 20px", maxWidth: "800px", marginTop: "-30px" }}>
+          <span style={{ color: "#E8A830", fontSize: "13px", fontWeight: "700", letterSpacing: "3px", textTransform: "uppercase", textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>
+            Every 3 Months — A New Generation Takes Flight
+          </span>
+          <h1 style={{ fontSize: "44px", fontWeight: "800", marginTop: "12px", marginBottom: "15px", letterSpacing: "-0.02em", textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}>
+            Academic Training Cycles
+          </h1>
+          <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.9)", maxWidth: "620px", margin: "0 auto", lineHeight: "1.65", fontWeight: "400" }}>
+            Explore our structured quarterly cohorts built to transform applicants through verified placement tracks.
+          </p>
+        </div>
       </section>
 
       {/* BATCHES CONTAINER */}
-      <main style={{ padding: "60px 20px", maxWidth: "1100px", margin: "-30px auto 0", position: "relative", zIndex: 3 }}>
+      <main style={{ padding: "20px 20px 60px", maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 3 }}>
         
         {/* SECTION 1: ACTIVE / UPCOMING COHORTS */}
         <h2 style={{ fontSize: "24px", fontWeight: "800", marginBottom: "25px", color: "#071020", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -234,4 +267,4 @@ function Batches() {
   );
 }
 
-export default Batches;  
+export default Batches;
