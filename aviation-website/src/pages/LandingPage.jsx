@@ -33,21 +33,22 @@ const f2 = "https://res.cloudinary.com/doihibg9v/video/upload/v1783497578/f2_gqh
 const f3 = "https://res.cloudinary.com/doihibg9v/video/upload/v1783497560/f3_k1d7xn.mp4";
 const f1 = "https://res.cloudinary.com/doihibg9v/video/upload/v1783498904/f1_d9tw91.mp4";
 
-// Hero Videos & Images (Local)
-import h111 from "../assets/h111.mp4";
-const i1="https://res.cloudinary.com/doihibg9v/image/upload/v1783581663/i1_hixeet.jpg"; 
-const i2="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i2_uk26xt.jpg";
-const i3 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i3_gqwdby.jpg";
-const i4 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i4_gnfghr.jpg";
-const  i5 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i5_j4jvsc.jpg";
-const  i6="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i6_vrqevl.jpg";  
-const  i7 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i7_uwn74g.jpg";
-const i8 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581661/i8_clr7sv.jpg";
+// Hero Videos & Images (Local & Cloudinary Assets)
+const h111 ="https://res.cloudinary.com/doihibg9v/video/upload/v1783581667/h111_guia0u.mp4";
+const i1 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581663/i1_hixeet.jpg"; 
+const i2 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i2_uk26xt.jpg";
+const i3 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i3_gqwdby.jpg";
+const i4 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i4_gnfghr.jpg";
+const i5 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i5_j4jvsc.jpg";
+const i6 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i6_vrqevl.jpg";  
+const i7 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i7_uwn74g.jpg";
+const i8 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581661/i8_clr7sv.jpg";
+
 function LandingPage() {
   const navigate = useNavigate();
 
-  // Unified Hero Media Array (Videos & Images)
-  const heroMedia = [i4,i7,i1, i8,i3,i6, i2, i5,];
+  // Unified Hero Media Array - Mixing premium cinematic video clips with images
+  const heroMedia = [ i4, h111,i7, i1, i8, i3, i6, i2, i5, h2];
 
   const services = [
     { image: cabin, title: "Cabin Crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service." },
@@ -63,8 +64,9 @@ function LandingPage() {
     { image: catering, title: "Flight Catering Loader", description: "Deliver and load airline catering supplies." }
   ];
 
-  // Helper function to check if file source points to a video
+  // Helper function to dynamically check if the asset is a video source
   const isVideo = (src) => {
+    if (typeof src !== "string") return true; // Safe fallback for locally bundled mp4 imports
     return src.endsWith(".mp4") || src.includes("/video/upload/");
   };
 
@@ -92,12 +94,13 @@ function LandingPage() {
                     muted
                     playsInline
                     className="heroVideo"
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
                   />
                 ) : (
                   <img 
                     src={mediaSrc} 
                     alt={`Hero background ${index}`} 
-                    className="heroVideo" // Keeping the same CSS class for uniform background styling
+                    className="heroVideo"
                     style={{ objectFit: "cover", width: "100%", height: "100%" }}
                   />
                 )}
@@ -106,6 +109,7 @@ function LandingPage() {
           </Swiper>
         </div>
 
+        {/* Cinematic gradient overlay over background items */}
         <div className="heroOverlay"></div>
         
         <div className="heroContent">
@@ -113,10 +117,17 @@ function LandingPage() {
             <span className="heroTag">AVIATION TRAINING • HYDERABAD</span>
             <h1>Your Gateway to a Successful Career in Aviation.</h1>
             <p>Launch your career in the fast-growing aviation industry with industry-oriented training, hands-on practical sessions, expert mentorship, internationally aligned curriculum, and dedicated placement assistance.</p>
+            
+            {/* Action Buttons Group */}
             <div className="heroButtons">
-              <button className="primaryBtn" onClick={() => { navigate("/apply"); window.scrollTo(0,0); }}>Apply Now</button>
+              <button className="primaryBtn" onClick={() => { navigate("/apply"); window.scrollTo(0,0); }}>
+                Apply Now
+              </button>
               <button className="secondaryBtn" onClick={() => { navigate("/curriculum"); window.scrollTo(0,0); }}>
                 View Curriculum
+              </button>
+              <button className="secondaryBtn modelingBtn" onClick={() => { navigate("/models"); window.scrollTo(0,0); }}>
+                Modeling Careers
               </button>
             </div>
           </div>
