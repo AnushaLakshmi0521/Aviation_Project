@@ -1,9 +1,19 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
+// Swiper Assets
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade"; 
+
+// CSS Stylesheet
 import "./LandingPage.css";
 
-// Assets
+// Career Images
 import cabin from "../assets/cabin.jpg";
 import baggage from "../assets/baggage.jpg";
 import refueling from "../assets/refueling.jpg";
@@ -11,59 +21,57 @@ import maintenance from "../assets/maintenance.jpg";
 import equipmentoperator from "../assets/equipmentoperator.jpg";
 import cargohandler from "../assets/cargohandler.jpg";
 import busdriver from "../assets/busdriver.jpg";
-
 import security from "../assets/security.jpg";
 import rampagent from "../assets/rampagent.jpg";
 import deicing from "../assets/deicing.jpg";
 import catering from "../assets/catering.jpg";
 
-// Hero Videos (Replace these paths with your actual local video files)
-const h1="https://res.cloudinary.com/doihibg9v/video/upload/v1782967443/h1_fqv3mu.mp4";
-const h2="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h2_tgd5eg.mp4";
-const h3="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h3_b4bix3.mp4";
-const f2 ="https://res.cloudinary.com/doihibg9v/video/upload/v1783497578/f2_gqhm7v.mp4";
-const f3="https://res.cloudinary.com/doihibg9v/video/upload/v1783497560/f3_k1d7xn.mp4";
-const h33="https://res.cloudinary.com/doihibg9v/video/upload/v1783493688/h33_n05pj7.mp4";
-const f1="https://res.cloudinary.com/doihibg9v/video/upload/v1783498904/f1_d9tw91.mp4";
+// Hero Videos (Cloudinary)
+const h1 = "https://res.cloudinary.com/doihibg9v/video/upload/v1782967443/h1_fqv3mu.mp4";
+const h2 = "https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h2_tgd5eg.mp4";
+const f2 = "https://res.cloudinary.com/doihibg9v/video/upload/v1783497578/f2_gqhm7v.mp4";
+const f3 = "https://res.cloudinary.com/doihibg9v/video/upload/v1783497560/f3_k1d7xn.mp4";
+const f1 = "https://res.cloudinary.com/doihibg9v/video/upload/v1783498904/f1_d9tw91.mp4";
 
-
-//const h22="https://res.cloudinary.com/doihibg9v/video/upload/v1783493688/h22_v3rs5m.mp4";
-//const f1="https://res.cloudinary.com/doihibg9v/video/upload/v1783494907/f1_txtura.mp4";
-
-// Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade"; // Required for cross-fade effect
-
+// Hero Videos & Images (Local)
+import h111 from "../assets/h111.mp4";
+const i1="https://res.cloudinary.com/doihibg9v/image/upload/v1783581663/i1_hixeet.jpg"; 
+const i2="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i2_uk26xt.jpg";
+const i3 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i3_gqwdby.jpg";
+const i4 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i4_gnfghr.jpg";
+const  i5 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i5_j4jvsc.jpg";
+const  i6="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i6_vrqevl.jpg";  
+const  i7 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i7_uwn74g.jpg";
+const i8 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783581661/i8_clr7sv.jpg";
 function LandingPage() {
   const navigate = useNavigate();
 
-  // Array containing your 4 hero videos
-  const heroVideos = [f2,f1,f3,h2];
+  // Unified Hero Media Array (Videos & Images)
+  const heroMedia = [i1,i7, i8,i3,i4,i6, i2, i5,];
 
   const services = [
-   { image: cabin, title: "cabin crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service. " },
+    { image: cabin, title: "Cabin Crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service." },
     { image: baggage, title: "Baggage Handler", description: "Load and unload passenger baggage and cargo safely." },
     { image: refueling, title: "Aircraft Refueling Technician", description: "Refuel aircraft while following strict aviation safety standards." },
     { image: maintenance, title: "Aircraft Maintenance Technician", description: "Inspect, repair and maintain aircraft systems." },
     { image: equipmentoperator, title: "Ground Support Equipment Operator", description: "Operate airport vehicles like tugs and belt loaders." },
     { image: cargohandler, title: "Cargo Handler", description: "Sort and handle freight shipments for airlines." },
     { image: busdriver, title: "Airport Bus Driver", description: "Transport passengers between terminals and aircraft." },
-
     { image: security, title: "Security Screener", description: "Screen passengers and baggage for airport security." },
     { image: rampagent, title: "Ramp Agent", description: "Support aircraft turnaround and baggage loading." },
     { image: deicing, title: "De-Icing Crew", description: "Remove ice and snow from aircraft before departure." },
     { image: catering, title: "Flight Catering Loader", description: "Deliver and load airline catering supplies." }
   ];
 
+  // Helper function to check if file source points to a video
+  const isVideo = (src) => {
+    return src.endsWith(".mp4") || src.includes("/video/upload/");
+  };
+
   return (
     <>
-      {/* HERO */}
+      {/* HERO SECTION */}
       <section className="hero">
-        {/* Background Swiper with Video Cross-Fading */}
         <div className="heroVideoSliderContainer">
           <Swiper
             modules={[Autoplay, EffectFade]}
@@ -71,19 +79,28 @@ function LandingPage() {
             fadeEffect={{ crossFade: true }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             loop={true}
-            allowTouchMove={false} // Prevents users from manually swiping the background
+            allowTouchMove={false}
             className="heroVideoSwiper"
           >
-            {heroVideos.map((videoSrc, index) => (
+            {heroMedia.map((mediaSrc, index) => (
               <SwiperSlide key={index}>
-                <video
-                  src={videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="heroVideo"
-                />
+                {isVideo(mediaSrc) ? (
+                  <video
+                    src={mediaSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="heroVideo"
+                  />
+                ) : (
+                  <img 
+                    src={mediaSrc} 
+                    alt={`Hero background ${index}`} 
+                    className="heroVideo" // Keeping the same CSS class for uniform background styling
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -95,9 +112,9 @@ function LandingPage() {
           <div className="glassBox">
             <span className="heroTag">AVIATION TRAINING • HYDERABAD</span>
             <h1>Your Gateway to a Successful Career in Aviation.</h1>
-            <p>Launch your career in the fast-growing aviation industry with industry-oriented training, hands-on practical sessions, expert mentorship, internationally aligned curriculum, and dedicated placement assistance. Prepare for exciting opportunities at airports, airlines, and aviation service organizations.</p>
+            <p>Launch your career in the fast-growing aviation industry with industry-oriented training, hands-on practical sessions, expert mentorship, internationally aligned curriculum, and dedicated placement assistance.</p>
             <div className="heroButtons">
-              <button className="primaryBtn" onClick={()=>{ navigate("/apply"); window.scrollTo(0,0); }}>Apply Now</button>
+              <button className="primaryBtn" onClick={() => { navigate("/apply"); window.scrollTo(0,0); }}>Apply Now</button>
               <button className="secondaryBtn" onClick={() => { navigate("/curriculum"); window.scrollTo(0,0); }}>
                 View Curriculum
               </button>
@@ -106,7 +123,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* CAREERS */}
+      {/* CAREERS SECTION */}
       <section className="careersSection">
         <div className="container">
           <div className="careerHeader">
@@ -147,7 +164,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* WHY CHOOSE US SECTION */}
       <section className="whyChoose">
         <div className="container">
           <div className="whyHeader">
@@ -162,7 +179,7 @@ function LandingPage() {
             <div className="featureCard"><div className="featureIcon">🏆</div><h3>Certification</h3><p>Receive industry-recognized training certification after course completion.</p></div>
             <div className="featureCard"><div className="featureIcon">💼</div><h3>100% Placement Assistance</h3><p>We are committed to helping every eligible student secure a job after successfully completing the training.</p></div>
             <div className="featureCard"><div className="featureIcon">💰</div><h3>Placement or Fee Refund*</h3><p>If a placement is not provided as per our terms and conditions, your course fee will be refunded.</p></div>
-            <div className="featureCard"><div className="featureIcon">✈️</div><h3>₹3.5 LPA Starting Package</h3><p>Get opportunities for blue-collar airport jobs with starting salary packages up to ₹3.5 lakhs per annum.</p></div>
+            <div className="featureCard"><div className="featureIcon">✈️</div><h3>₹3.5 LPA Starting Package</h3><p>Get opportunities for jobs with starting salary packages up to ₹3.5 lakhs per annum.</p></div>
           </div>
         </div>
       </section>
