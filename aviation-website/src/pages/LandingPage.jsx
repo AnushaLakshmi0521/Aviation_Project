@@ -43,12 +43,13 @@ const i5 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i5_j4j
 const i6 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i6_vrqevl.jpg";  
 const i7 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581662/i7_uwn74g.jpg";
 const i8 = "https://res.cloudinary.com/doihibg9v/image/upload/v1783581661/i8_clr7sv.jpg";
-
+//const i9 ="https://res.cloudinary.com/doihibg9v/image/upload/v1783587609/i9_yxorae.jpg";
+const i10="https://res.cloudinary.com/doihibg9v/image/upload/v1783587609/i10_at57yg.jpg";
 function LandingPage() {
   const navigate = useNavigate();
 
   // Unified Hero Media Array - Mixing premium cinematic video clips with images
-  const heroMedia = [ i4, h111,i7, i1, i8, i3, i6, i2, i5];
+  const heroMedia = [ i4,i10,h111,i7, i1, i8, i3, i6, i2, i5];
 
   const services = [
     { image: cabin, title: "Cabin Crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service." },
