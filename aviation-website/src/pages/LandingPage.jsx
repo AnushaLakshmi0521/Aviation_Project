@@ -48,7 +48,7 @@ function LandingPage() {
   const navigate = useNavigate();
 
   // Unified Hero Media Array - Mixing premium cinematic video clips with images
-  const heroMedia = [ i4, h111,i7, i1, i8, i3, i6, i2, i5, h2];
+  const heroMedia = [ i4, h111,i7, i1, i8, i3, i6, i2, i5];
 
   const services = [
     { image: cabin, title: "Cabin Crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service." },
