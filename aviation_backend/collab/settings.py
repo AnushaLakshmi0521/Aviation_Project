@@ -39,7 +39,7 @@ os.environ["SSL_CERT_FILE"] = certifi.where()
 SECRET_KEY = 'django-insecure-tmp3$es)x@6jk+%q!j6@r-iyma(6(b_(4)w!7@hhy^v%fnbls+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     "aviation-project-7d1q.onrender.com",
@@ -157,9 +157,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 EMAIL_HOST = "smtp-relay.brevo.com"
