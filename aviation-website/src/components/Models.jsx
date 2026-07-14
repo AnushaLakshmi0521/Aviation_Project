@@ -57,9 +57,15 @@ function Models() {
 
   // Form State Data
   const [formData, setFormData] = useState({
-    fullName: "", email: "", phone: "", age: "", height: "", Instagram: "", division: "Runway Modeling", message: ""
-  });
-
+  full_name: "",
+  email: "",
+  phone: "",
+  age: "",
+  height: "",
+  instagram: "",
+  division: "Modeling Foundation",
+  message: "",
+});
   // Hook references mapping intersection tracks directly to section frames
   const [heroRef, heroRevealed] = useScrollReveal({ threshold: 0.05 });
   const [statsRef, statsRevealed] = useScrollReveal({ threshold: 0.2 });
@@ -115,14 +121,60 @@ function Models() {
 
   // Form input change controller
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const { name, value } = e.target;
 
+    setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+    }));
+};
   // Form Submission Logic 
-  const handleFormSubmit = (e) => {
+ const handleFormSubmit = async (e) => {
     e.preventDefault();
-    alert(`Application submitted successfully for ${formData.fullName}! Our scouting team will review your profile within 48 hours.`);
-  };
+
+    try {
+        const response = await fetch(
+            "https://aviation-project-7d1q.onrender.com/api/model-application/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            alert("Application submitted successfully!");
+
+            setFormData({
+                full_name: "",
+                email: "",
+                phone: "",
+                age: "",
+                height: "",
+                instagram: "",
+                division: "Modeling Foundation",
+                message: "",
+            });
+
+        } else {
+
+            alert("Submission failed");
+
+            console.log(data);
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Server Error");
+    }
+};
 
   const heroReelVideos = [m2, m3, m1];
 
@@ -434,7 +486,7 @@ function Models() {
               
               <div>
                 <label style={{ display: "block", fontSize: "12px", color: "#9ca3af", fontWeight: "700", marginBottom: "8px", letterSpacing: "0.5px" }}>FULL NAME *</label>
-                <input type="text" name="fullName" required value={formData.fullName} onChange={handleInputChange} className="form-input-field" placeholder="e.g., Jane Doe" style={{ width: "100%", background: "#060b14", border: "1px solid #1a2d54", borderRadius: "10px", padding: "14px", color: "#fff", fontSize: "14px", transition: "0.3s", boxSizing: "border-box" }} />
+                <input type="text" name="full_name" required value={formData.full_name} onChange={handleInputChange} className="form-input-field" placeholder="e.g., Jane Doe" style={{ width: "100%", background: "#060b14", border: "1px solid #1a2d54", borderRadius: "10px", padding: "14px", color: "#fff", fontSize: "14px", transition: "0.3s", boxSizing: "border-box" }} />
               </div>
 
               <div>
@@ -449,7 +501,7 @@ function Models() {
 
               <div>
                 <label style={{ display: "block", fontSize: "12px", color: "#9ca3af", fontWeight: "700", marginBottom: "8px", letterSpacing: "0.5px" }}>INSTAGRAM PROFILE URL</label>
-                <input type="url" name="Instagram" value={formData.Instagram} onChange={handleInputChange} className="form-input-field" placeholder="instagram.com/username" style={{ width: "100%", background: "#060b14", border: "1px solid #1a2d54", borderRadius: "10px", padding: "14px", color: "#fff", fontSize: "14px", transition: "0.3s", boxSizing: "border-box" }} />
+                <input type="url" name="instagram" value={formData.instagram} onChange={handleInputChange} className="form-input-field" placeholder="instagram.com/username" style={{ width: "100%", background: "#060b14", border: "1px solid #1a2d54", borderRadius: "10px", padding: "14px", color: "#fff", fontSize: "14px", transition: "0.3s", boxSizing: "border-box" }} />
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
