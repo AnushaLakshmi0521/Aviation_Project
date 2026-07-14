@@ -12,6 +12,12 @@ from .email_templates import (
 from .email_templates import admin_callback_email
 
 
+from .email_templates import (
+    student_model_application_email,
+    admin_model_application_email,
+)
+
+
 ADMIN_EMAIL = "anug26446@gmail.com"
 
 
@@ -79,3 +85,113 @@ def send_callback_notification(callback):
         subject="New Callback Request",
         html_content=admin_callback_email(callback),
     )
+
+def send_model_notifications(application):
+
+    send_email(
+        to_email=application.email,
+        to_name=application.full_name,
+        subject="Your Modeling Application has been received",
+        html_content=student_model_email(application.full_name),
+    )
+
+    send_email(
+        to_email="YOUR_ADMIN_EMAIL",
+        to_name="Admin",
+        subject="New Modeling Application",
+        html_content=admin_model_email(application),
+    )
+
+def student_model_email(name):
+
+    return f"""
+    <html>
+
+    <body style="font-family:Arial">
+
+        <h2>Hello {name} 👋</h2>
+
+        <p>
+        Thank you for applying to our Professional Modeling Academy.
+        </p>
+
+        <p>
+        We have received your application successfully.
+        </p>
+
+        <p>
+        Our talent acquisition team will review your profile and contact you within 48 hours.
+        </p>
+
+        <br>
+
+        <b>
+        Regards,
+        </b>
+
+        <br><br>
+
+        Professional Modeling Academy
+
+    </body>
+
+    </html>
+    """
+
+def admin_model_email(application):
+
+    return f"""
+    <html>
+
+    <body>
+
+    <h2>New Modeling Application</h2>
+
+    <table border="1" cellpadding="8">
+
+        <tr>
+            <td><b>Name</b></td>
+            <td>{application.full_name}</td>
+        </tr>
+
+        <tr>
+            <td><b>Email</b></td>
+            <td>{application.email}</td>
+        </tr>
+
+        <tr>
+            <td><b>Phone</b></td>
+            <td>{application.phone}</td>
+        </tr>
+
+        <tr>
+            <td><b>Instagram</b></td>
+            <td>{application.instagram}</td>
+        </tr>
+
+        <tr>
+            <td><b>Age</b></td>
+            <td>{application.age}</td>
+        </tr>
+
+        <tr>
+            <td><b>Height</b></td>
+            <td>{application.height}</td>
+        </tr>
+
+        <tr>
+            <td><b>Division</b></td>
+            <td>{application.division}</td>
+        </tr>
+
+        <tr>
+            <td><b>Message</b></td>
+            <td>{application.message}</td>
+        </tr>
+
+    </table>
+
+    </body>
+
+    </html>
+    """

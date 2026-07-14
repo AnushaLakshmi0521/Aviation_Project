@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from .models import Apply ,Admission,Contact
 from .models import CallbackRequest
-
+from .models import ModelApplication
 
 class ApplySerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,4 +24,10 @@ class ContactSerializer(serializers.ModelSerializer):
 class CallbackRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = CallbackRequest
+        fields = "__all__"
+
+class ModelApplicationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ModelApplication
         fields = "__all__"

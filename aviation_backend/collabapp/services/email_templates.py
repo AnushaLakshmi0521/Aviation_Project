@@ -238,3 +238,114 @@ def admin_callback_email(callback):
     </body>
     </html>
     """
+
+def student_model_application_email(name):
+    return f"""
+    <html>
+    <body style="font-family:Arial,sans-serif; background:#f7f7f7; padding:30px;">
+
+        <div style="max-width:650px;margin:auto;background:#ffffff;padding:30px;border-radius:10px;">
+
+            <h2 style="color:#D4AF37;">
+                Hello {name}, 👋
+            </h2>
+
+            <p>
+                Thank you for applying to our <b>Professional Modeling Academy</b>.
+            </p>
+
+            <p>
+                We have successfully received your application.
+            </p>
+
+            <p>
+                Our talent acquisition team will carefully review your profile,
+                portfolio details and selected division.
+            </p>
+
+            <p>
+                If your profile matches our current requirements,
+                one of our coordinators will contact you within
+                <b>24–48 hours</b>.
+            </p>
+
+            <br>
+
+            <p>
+                Thank you for choosing us to begin your professional modeling journey.
+            </p>
+
+            <br>
+
+            <b>Regards,</b><br>
+            Professional Modeling Academy
+
+        </div>
+
+    </body>
+    </html>
+    """
+
+
+
+def admin_model_application_email(application):
+    return f"""
+    <html>
+
+    <body style="font-family:Arial,sans-serif;">
+
+    <h2>New Modeling Application Received</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr>
+            <td><b>Full Name</b></td>
+            <td>{application.full_name}</td>
+        </tr>
+
+        <tr>
+            <td><b>Email</b></td>
+            <td>{application.email}</td>
+        </tr>
+
+        <tr>
+            <td><b>Phone</b></td>
+            <td>{application.phone}</td>
+        </tr>
+
+        <tr>
+            <td><b>Instagram</b></td>
+            <td>{application.instagram}</td>
+        </tr>
+
+        <tr>
+            <td><b>Age</b></td>
+            <td>{application.age}</td>
+        </tr>
+
+        <tr>
+            <td><b>Height (cm)</b></td>
+            <td>{application.height}</td>
+        </tr>
+
+        <tr>
+            <td><b>Selected Division</b></td>
+            <td>{application.division}</td>
+        </tr>
+
+        <tr>
+            <td><b>Additional Details</b></td>
+            <td>{application.message}</td>
+        </tr>
+
+        <tr>
+            <td><b>Applied On</b></td>
+            <td>{application.created_at}</td>
+        </tr>
+
+    </table>
+
+    </body>
+
+    </html>
+    """

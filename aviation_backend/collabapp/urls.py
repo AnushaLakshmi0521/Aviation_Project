@@ -10,5 +10,8 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("chat/", views.chat, name="chat"),
     path("request-callback/", views.request_callback, name="request-callback"),
+    path("model-application/",
+    views.model_application,
+    name="model-application"),
 
 ]

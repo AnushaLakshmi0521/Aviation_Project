@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from .models import Apply, Admission, Contact
-from .models import CallbackRequest
+from .models import CallbackRequest,ModelApplication
 
 
 @admin.register(Apply)
@@ -41,3 +41,26 @@ class ContactAdmin(admin.ModelAdmin):
     ordering = ("-created_at",)
 
 admin.site.register(CallbackRequest)
+
+
+@admin.register(ModelApplication)
+class ModelApplicationAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "full_name",
+        "email",
+        "phone",
+        "division",
+        "created_at",
+    )
+
+    search_fields = (
+        "full_name",
+        "email",
+        "phone",
+    )
+
+    list_filter = (
+        "division",
+        "created_at",
+    )

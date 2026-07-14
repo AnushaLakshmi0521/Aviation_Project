@@ -61,3 +61,38 @@ class CallbackRequest(models.Model):
 
     def __str__(self):
         return self.phone
+
+
+class ModelApplication(models.Model):
+    DIVISION_CHOICES = [
+        ("Modeling Foundation", "Modeling Foundation"),
+        ("Ramp Modeling", "Ramp Modeling"),
+        ("Print Modeling", "Print Modeling"),
+        ("Commercial Modeling", "Commercial Modeling"),
+        ("E-Commerce Modeling", "E-Commerce Modeling"),
+        ("Catalogue Modeling", "Catalogue Modeling"),
+        ("Bridal Modeling", "Bridal Modeling"),
+        ("Ethnic Wear Modeling", "Ethnic Wear Modeling"),
+        ("Luxury Modeling", "Luxury Modeling"),
+    ]
+
+    full_name = models.CharField(max_length=200)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+
+    instagram = models.URLField(blank=True, null=True)
+
+    age = models.PositiveIntegerField()
+    height = models.PositiveIntegerField()
+
+    division = models.CharField(
+        max_length=100,
+        choices=DIVISION_CHOICES
+    )
+
+    message = models.TextField(blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name

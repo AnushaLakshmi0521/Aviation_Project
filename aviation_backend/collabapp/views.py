@@ -8,14 +8,15 @@ from .models import Apply
 from .models import Admission,Contact
 from .serializers import ApplySerializer,AdmissionSerializer,ContactSerializer
 
-from .services.notification_service import send_apply_notifications,send_admission_notifications,send_contact_notifications
+from .services.notification_service import send_apply_notifications,send_admission_notifications,send_contact_notifications,send_model_notifications
 from .services.brevo_email import send_email
 
 from .models import CallbackRequest
 from .serializers import CallbackRequestSerializer
 from .services.notification_service import send_callback_notification
 from .services.ai_chat import ask_ai
-
+from .models import ModelApplication
+from .serializers import ModelApplicationSerializer
 
 @api_view(["POST"])
 def apply_form(request):
@@ -179,3 +180,25 @@ def chat(request):
             },
             status=500,
         )
+
+@api_view(["POST"])
+def model_application(request):
+
+    serializer = ModelApplicationSerializer(data=request.data)
+
+    if serializer.is_valid():
+
+        application = serializer.save()
+
+        try:
+            send_model_notifications(application)
+
+        except Exception as e:
+            print(e)
+
+        return Response({
+            "success": True,
+            "message": "Application submitted successfully."
+        })
+
+    return Response(serializer.errors, status=400)
